@@ -19,18 +19,18 @@ public class DeterminantCalculator {
 	}
 	
 	public static double determinant(double[][] matrix) {
-		if (matrix.length == 1 && matrix[0].length == 1)
+		if (matrix.length == 1 && matrix[0].length == 1) //base case
 			return matrix[0][0];
 		
 		double determinant = 0;
 		for (int i = 0; i < matrix.length; i++) {
-			double[][] minor = new double[matrix.length - 1][matrix[i].length - 1];
+			double[][] minor = new double[matrix.length - 1][matrix[i].length - 1]; //set up the minor
 			for (int j = 0; j < matrix.length - 1; j++) {
 				for (int k = 0; k < matrix[j].length - 1; k++) {
 					if (j < i) {
 						minor[j][k] = matrix[j][k + 1];
 					} else {
-						minor[j][k] = matrix[j + 1][k + 1];
+						minor[j][k] = matrix[j + 1][k + 1]; //skip forward a row to place the correct parts of the matrix into the minor
 					}
 				}
 			}
